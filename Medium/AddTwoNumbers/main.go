@@ -6,8 +6,8 @@ type ListNode struct {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	dummy := &ListNode{}
-	cur := dummy
+	instance := &ListNode{}
+	current := instance
 	carry := 0
 
 	for l1 != nil || l2 != nil || carry != 0 {
@@ -27,9 +27,9 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		carry = val / 10
 		val = val % 10
 
-		cur.Next = &ListNode{Val: val}
-		cur = cur.Next
+		current.Next = &ListNode{Val: val}
+		current = current.Next
 	}
+	return instance.Next
 
-	return dummy.Next
 }
