@@ -1,15 +1,20 @@
 package main
 
 func twoSum(nums []int, target int) []int {
+	m := make(map[int]int)
+	var res []int
 
-	var array []int
-
-	for i := 0; i < len(nums)-1; i++ {
-		if nums[i]+nums[i+1] == target {
-			array = append(array, i)
-			array = append(array, i+1)
+	for index, value := range nums {
+		mapValue, ok := m[target-value]
+		if ok {
+			res = append(res, index)
+			res = append(res, mapValue)
+		} else {
+			m[value] = index
 		}
+
 	}
 
-	return array
+	return res
+
 }
